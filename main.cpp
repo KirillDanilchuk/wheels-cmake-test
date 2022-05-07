@@ -1,7 +1,11 @@
 #include <wheels/io/io.hpp>
+#include <wheels/support/assert.hpp>
 
 int main() {
-  auto value = wheels::io::Input<int>("Enter integer:");
-  std::cout << value << std::endl;
+  using namespace wheels;
+  auto value = Input<int>("Enter value:");
+
+  WHEELS_ASSERT(value < 42, "Too small value");
+
   return 0;
 }
